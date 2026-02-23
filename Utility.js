@@ -52,3 +52,58 @@ function playDicegame(){
             // returning / passing back the random number
             return number;
         }
+
+
+
+
+        
+// this function will validate the user input based on the requirements of 
+// the client (assignment requirements)
+function validate(){
+    // first name variable
+    let firstname = document.getElementById("txtfirstname").value;
+
+    // show the first name in the console
+    console.log("firstname=" + firstname);
+
+        // Last name name variable
+    let lastname = document.getElementById("txtlastname").value;
+
+    // show the Last name in the console
+    console.log("lastname=" + lastname);
+
+    // zipp code variable
+    let zip = document.getElementById("txtZip").value;
+
+        // show the zip code in the console
+    console.log("zip=" + zip);
+
+    // create a variable to hold the first name + " " + last name
+    let fullname = firstname + " " + lastname;
+
+    console.log("fullname=" + fullname)
+
+    // create a vaariable to hold the message we will show to the user
+    let message = ""
+
+    // we want to make sure the full name does not exceed 20 characters
+    if (fullname.length == 1 || fullname.length > 20){
+        message = "Please enter a name that is less than 20 characters";
+    }
+    // the zip code can only have 5 characters
+    else if(zip.length != 5){
+        message = "Please enter a 5 digit zip code";
+    }
+    // otherwise the user has entered everything correctly, and they get
+    // the secret word
+    else{
+        message = "Congratulations! you entered everything correctly, the secret word is: User Validation";
+    }
+
+
+
+    console.log("message=" + message);
+
+    // display the message on the associate div
+    document.getElementById("divmessage").textcontent = message;
+}
