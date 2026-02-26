@@ -107,3 +107,57 @@ function validate(){
     // display the message on the associate div
     document.getElementById("divmessage").textcontent = message;
 }
+
+
+  // create a variable to track the current interval ID (returned from the setInterval)
+       let intervalId = 0;
+        // create the function to move the image
+        function StartImageanimation(){
+            // we are creating a variable that is a shortcut/nickname for our HTML image
+            let memeImage = document.getElementById("memeImage");
+
+            //setInterval allows us to repeatedly run code
+            // function(){} is an anonymous function - a way to run a chunk of code 1
+            // time as a function argument
+            intervalId = setInterval(function(){
+
+                let topCord = getRandomPixel();
+                let leftCord = getRandomPixel();
+
+                memeImage.style.left = leftCord + "px";
+                memeImage.style.top = topCord + "px";
+            },800); // 1000 milliseconds = 1 second
+
+           
+
+            // enable the stop button == can click on stop button
+            document.getElementById("btnStop").disabled = false;
+
+            // disable the start button == cannot click on start button
+            document.getElementById("btnStart").disabled = true;
+
+        }
+
+
+        // create function that stops image
+        function StopImageanimation(){
+            // call a built in Javascript function that stops the setinterval from running
+            clearInterval(intervalId);
+
+            // disable the stop button == can click on stop button
+            document.getElementById("btnStop").disabled = true;
+
+            // enable the start button == cannot click on start button
+            document.getElementById("btnStart").disabled = false;
+
+
+
+        }
+
+
+        // build a function to get a random number
+        function getRandomPixel(){
+            // im picking 800 as the max number - adjust accordingly based on your screen
+            return Math.floor(Math.random() * 900)
+
+        }
