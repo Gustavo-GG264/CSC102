@@ -1,6 +1,6 @@
 function playDicegame(){
             // variables to hold our first roll of the die
-            let roll1 = GetRandomNumber();
+            let roll1 = GetRandomNumber(6, false);
 
             console.log("roll1 =", roll1);
             
@@ -41,16 +41,32 @@ function playDicegame(){
         }
 
 
-        //this function will roll a random number between 1 and 6
-        function GetRandomNumber(){
-            // get a random number between 0 and 1 and multiply it by 6
-            let number = Math.random() * 6;
+        //this function will roll a random number between 1 and max
+        function GetRandomNumber(max, includeZero){
+            // get a random number between 0 and 1 and multiply it by max
+            let number = Math.random() * max;
 
-            // this will round our number down, adding 1 so we get a number between 1 and 6 rather than getting decimals or a zero
+            // this will round our number down, so we get a number between 0 and max (inclusive)
+            if (includeZero){
+                number = Math.floor(number)
+            }
+            else{number = Math.floor(number) + 1;
+
+            }
+
+
+            // this will round our number down, adding 1 so we get a number between 1 and max rather than getting decimals or a zero
             number = Math.floor(number) + 1;
 
             // returning / passing back the random number
             return number;
+        }
+
+            // build a function to get a random number
+            function getRandomPixel(){
+            // im picking 800 as the max number - adjust accordingly based on your screen
+            return Math.floor(Math.random() * 900)
+
         }
 
 
@@ -121,8 +137,8 @@ function validate(){
             // time as a function argument
             intervalId = setInterval(function(){
 
-                let topCord = getRandomPixel();
-                let leftCord = getRandomPixel();
+                let topCord = getRandomPixel(901, true);
+                let leftCord = getRandomPixel(901, true);
 
                 memeImage.style.left = leftCord + "px";
                 memeImage.style.top = topCord + "px";
@@ -161,3 +177,71 @@ function validate(){
             return Math.floor(Math.random() * 900)
 
         }
+
+
+
+// Palindrome checker code
+ // create the checkPalin function
+    function CheckPalin(event){
+        // prevent the form from submitting (so the page does not refresh)
+        event.preventDefault();
+
+        // create a variable to store the word that the user entered
+        let wordtoTest = document.getElementById("txtword").value;
+
+        console.log("wordtotest=" + wordtoTest)
+
+         // call the function to test it
+        // tODO: print out the result to the user
+        let bPalin = isPalin(wordtoTest);
+
+        // create a shortcut to the message div
+        let divMessage = document.getElementById("divmessage");
+
+
+         // create a message for the user based on the value of bPalin
+        if(bPalin){ // if(bPalin) is equivalent to if(bPalin == true)
+            // show the user a message
+             divmessage.textContent = "The phrase is a Palindrome!";
+        }
+        else{
+            divmessage.textContent = "The phrase is not a Palindrome!";
+    }
+    
+    }
+    
+
+    // create a function to see if a string is the same backwards and forwards
+    function isPalin(strtoTest){
+        // i want to convert the string to all lowercase so that it is a more fair comparison
+        strtoTest = strtoTest.toLowerCase();
+        // replace all instances /g of spaces /\s with empty string
+        strtoTest = strtoTest.replace(/\s/g, "");
+
+        console.log("strtoTest=" + strtoTest)
+
+        // create a new variable so you can keep the original string for testing
+        let stringreverse = strtoTest;
+
+        // convert the reverse string to an array, we will reverse the contents 
+        // so test would become tset and then convert the array back to a string
+        stringreverse = stringreverse.split("").reverse().join("");
+
+        console.log("strtoTest=" + stringreverse)
+
+        // compare the orginal string with the reversed string
+        // if they match, this function will return true, otherwise it will return
+        // false
+        if (stringreverse == strtoTest){
+            return true;
+        }
+        // if we get to this line, it must not have been a palindrome, so return 
+        // false; this is equivalent to the else above  - include only 1 or the other
+        else{
+            return false;
+        }
+    }
+
+
+
+        

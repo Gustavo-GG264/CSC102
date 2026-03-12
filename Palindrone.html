@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+
+    <!-- add a link to the CSS file -->
+    <link rel="stylesheet" href="Main.css">
+</head>
+<body>
+    <header>
+        <h1>Palindrome Checker</h1>
+    </header>
+    <main>
+        <form onsubmit="CheckPalin(event)">
+            <!-- label to explain to the user what info we need -->
+            <label for = "txtword">Enter a word or phrase:</label>
+            <!-- text box for the user to be able to type in a word -->
+            <input type= "text" id="txtword">
+            <!-- the button so the user can test the word -->
+            <input type="submit" value="Check Word">
+        </form>
+
+
+        <!-- create a div to hold the results of our palindrome check -->
+        <div id="divmessage"></div>
+    </main>
+
+
+    <!-- TODO: move this Javascript code to an external .js file -->
+    <script src = "Utility.js"></script>
+</body>
+</html>
