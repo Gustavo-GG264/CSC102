@@ -244,4 +244,54 @@ function validate(){
 
 
 
-        
+    
+     function AddAudio(){
+    // this function will add audio element to the page so we can listen to a sound clip
+        let divAudio = document.getElementById("divAudio");
+
+
+        // create an audio HTML element using javascript
+        let audioElement = document.createElement("audio");
+        // set the attributes of our new HTML element
+        // add an ID so we can more easily work with this element
+        audioElement.setAttribute("id", "myAudio");
+
+        // add the file name as the source
+        audioElement.setAttribute("src", "us-lab-background.mp3");
+
+        // highly suggested - add controls
+         audioElement.setAttribute("controls", "controls");
+
+        //  change the volume to 0 by default
+        audioElement.volume = .5;
+
+        //  add our new HTML audio element to the div that will host it
+        divAudio.appendChild(audioElement);
+
+        // disallow the user from clicking the add audio button now that the audio 
+        // has been added to the webpage
+        document.getElementById("BtnAddAudio").hidden = true
+
+        // make the play and pause button appear
+                document.getElementById("BtnPlayAudio").hidden = false
+                document.getElementById("BtnPauseAudio").hidden = false
+
+    }
+
+    // create the function so that we can play the audio 
+    function PlayAudio(){
+        // create a shortcut/nickname to the audio element that 
+        // we created in the audio function
+        let myAudio = document.getElementById("myAudio")
+        // let's play the sound
+        myAudio.play();
+    }
+
+// cerate the function so that we can pause the audio
+function PauseAudio(){
+    // create a shortcut/nickname to the audio element that we created in the 
+    // addAudio function
+    let myAudio = document.getElementById("myAudio");
+    // let's pause the sound
+    myAudio.pause();
+}

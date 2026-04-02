@@ -25,10 +25,19 @@
 
         <!-- create a div to hold the results of our palindrome check -->
         <div id="divmessage"></div>
-    </main>
 
+        <!-- we will add an audio element to this div -->
+        <div id="divAudio"></div>
+
+        <!-- this button will add audio element to the div above -->
+        <button id="BtnAddAudio" onclick="AddAudio();">Add Audio</button>
+
+        <button id="BtnPlayAudio" onclick="PlayAudio();" hidden>Play Audio</button>
+        <button id="BtnPauseAudio" onclick="PauseAudio();" hidden>Pause Audio</button>
+    </main>
 
     <!-- TODO: move this Javascript code to an external .js file -->
     <script src = "Utility.js"></script>
+    
 </body>
 </html>
