@@ -22,8 +22,15 @@
     <!-- header is a semantic HTML tag -->
     <!-- header - typically has logo/menu -->
     <header>
+        <!-- this is where my menu will live so i can navigate to all of my pages -->
+            
         <!-- this h1 is heading1, the page title -->
         <h1>Welcome to my CSC102 landing page</h1>
+        <a href="CSC102.html">Home</a>
+             <a href="Boards.html">Boards</a>
+            <a href="Palindrone.html">Palindrone</a>
+             <a href="plants.html">Plants</a>
+              <a href="Table.html">table</a>
     </header>
 
 
@@ -122,11 +129,14 @@
         - keep mixing until the ingredients have combined
 
         for loops - we use for loops when we (us the interpretor) know how many times the loops should run
+        for loops are often used when processing/displaying data
+
 
         while loops - we use while loops when we don't know how many times the loop should run: think user input
+        while loops are great when working with user input
         */
         // the for loop should have 3 pieces of information
-        // 1st pieceof information is a variable that keeps track of where we are in the loop
+        // 1st piece of information is a variable that keeps track of where we are in the loop
         // 2nd piece of information is the condition (that while true) the loop will continue to run
         // 3rd piece of information is changing the value of the counter variable; often we add 1:
         // i = i + 1 is the same as i++
@@ -134,7 +144,118 @@
             console.log("i=", i);
         }
 
+        // create function to get some numbers and add them together 
+        /*function runCalc(){
+            // set up 2 variables to hold the numbers that the user eventually gives us
+            let num1 = 0;
+            let num2 = 0;
+
+            // this variable will hold the condition that our while loop is going to test
+            let isValid = false;
+
+            // set up our while loop to ask for number 1
+            // as long as isValid = false, this loop will run
+            // make sure there is an "off ramp" to your while loops - infinite while loops crash
+            //your program
+            while(!isValid){
+                // ask the user for number 1 using a javascript prompt
+                num1 = prompt("Please enter number 1: ");
+
+                // isNan = isNotNumber - this returns true if the user entered a string, such as "eight"
+                if (isNaN(num1)){
+                    alert("Please enter a valid number between 0 and 9");
+                } // if the else statement runs, it means the user entered a number
+                else{
+                    // changing isValid to true, gets us out of this loop
+                    isValid = true
+                }
+            }
+
+            // reset isValid to false so that the next while loop will run
+            isValid = false;
+            // for getting number 2 using javascript prompt
+             while(!isValid){
+                // ask the user for number 2 using a javascript prompt
+                num2 = prompt("Please enter number 2: ");
+
+                // isNan = isNotNumber - this returns true if the user entered a string, such as "eight"
+                if (isNaN(num2)){
+                    alert("Please enter a valid number between 0 and 9");
+                }
+                else{
+                    // changing isValid to true, gets us out of this loop
+                    isValid = true
+                }
+            }
+
+            // we have 2 numeric values, add them together and show the user
+            let sumNow = parseInt(num1) + parseInt(num2);
+
+            // console.log("sumNow =" + sumNow);
+
+           // alert("the sum is: " + sumNow);
+        }
+
+        // call the function we just wrote to ask the user for numbers
+        runCalc();
+
+
+        // define the Animal class we built the UML for
+
+        class Animal{
+            // constructor - allows us to quickly create a new object
+            construnctor(new_species, kingdom, genus, family, color, age){
+                // we set up our properties on the fly
+                this.species = new_species;
+                this.kingdom = kingdom;
+                this.genus = genus;
+                this.family = family;
+                this.color = color;
+                this.age = age;
+            }
+
+            setFamily(new_family){
+                this.family = new_family;
+                // we would also need to change the other properties of genus, family, 
+                // and species
+            }
+
+            getFamily(){
+                return this.family;
+            }
+
+            eat(){
+                // technically we should return true or false, based on our UML diagram
+                return "the animal had some food";
+            }
+
+
+            makeSound(){
+                return "Animals in this family make this sound";
+            }
+        }
+
+        // create an animal object to bring our class to life
+        let cat = new Animal("Felidae", "Animal", "Feline", "cat", "black", 2);
+
+        console.log(cat.eat());
+        console.log(cat.makeSound());
+        console.log(cat.getFamily());
+
+        // create a dog object
+        let dog = new Animal("Canine", "Animal", "Latin word for Dog", "dog", "yellow", 5);
+
+        console.log(dog.eat());
+        console.log(dog.makeSound());
+        console.log(dog.getFamily());
     </script>
+
+    <footer>
+        Gustavo Garcia Gamboa<br>
+        University of advancing technology<br>
+        2625 W baseline road<br>
+        Tempe, AZ 85283
+    </footer>
 </body>
 <!-- the closing HTML tag should be at the very end of the file -->
-</html> <!-- closing tag--
+</html> <!-- closing tag -->
